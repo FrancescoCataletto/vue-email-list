@@ -17,6 +17,8 @@ const app = new Vue(
             
             emailArr: [],
 
+            mailLimit: 10,
+
             loading: true
 
         },
@@ -28,14 +30,15 @@ const app = new Vue(
         methods: {
             // FUNZIONE CHE CHIAMA L'API PER GENERARE UNA MAIL CASUALE E PUSHARE NELL'ARRAY DEI DATA(GENERA 10 EMAIL CASUALI CON QUESTO CICLO)
             randomEmails(){
-                for(let i = 0; i < 10; i++){
+                for(let i = 0; i < this.mailLimit; i++){
                     axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
-                    .then(res => {
+                    .then((res) => {
                         this.emailArr.push(res.data.response)
+                        if(this.emailArr.length === this.mailLimit){
+                            this.loading = false
+                        }
                     })  
                 }
-                this.loading = false
-                console.log(this.emailArr)
             }
         }
     }
