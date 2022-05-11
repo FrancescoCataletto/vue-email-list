@@ -16,12 +16,17 @@
 <body>
     
     <div id="app">
-
-        <h1>Random list of Emails</h1>
-        <!-- stampo la lista delle mail andando a ciclare l'array delle mail nei data -->
-        <ul>
-            <li v-for="email of emailArr">{{email}}</li>
-        </ul>
+        <div v-if="loading">
+            <img src="https://icon-library.com/images/loading-gif-icon/loading-gif-icon-9.jpg" alt="">
+        </div>
+        
+        <div v-else="!loading">
+            <h1>Random list of Emails</h1>
+            <!-- stampo la lista delle mail andando a ciclare l'array delle mail nei data -->
+            <ul>
+                <li v-for="email of emailArr">{{email}}</li>
+            </ul>
+        </div>
 
     </div>
 

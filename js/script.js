@@ -15,7 +15,9 @@ const app = new Vue(
 
         data: {
             
-            emailArr: []
+            emailArr: [],
+
+            loading: true
 
         },
 
@@ -30,8 +32,9 @@ const app = new Vue(
                     axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
                     .then(res => {
                         this.emailArr.push(res.data.response)
-                    })
+                    })  
                 }
+                this.loading = false
                 console.log(this.emailArr)
             }
         }
