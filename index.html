@@ -10,12 +10,20 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- AXIOS -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    
+
     <title>email-list</title>
 </head>
 <body>
     
-    <h1>email list</h1>
+    <div id="app">
+
+        <h1>Random list of Emails</h1>
+        <!-- stampo la lista delle mail andando a ciclare l'array delle mail nei data -->
+        <ul>
+            <li v-for="email of emailArr">{{email}}</li>
+        </ul>
+
+    </div>
 
     <script src="js/script.js"></script>
 </body>
